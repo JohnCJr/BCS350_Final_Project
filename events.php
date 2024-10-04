@@ -3,24 +3,25 @@
 // Written by: John Cabanas, November 2023
 
 // Include
-	include('header.php');
+include('header.php');
 
 // Variables used to get the upcoming Saturday given the current date
-    $firstsaturday = date('m/d/Y', strtotime('next Saturday')); // Outputs the date in the format "MM/DD/YYYY"
-    $eventdates =  array();
-    array_push($eventdates, $firstsaturday);
-    $days = 6;
-    for ($i = 1; $i <= 4; $i++) {
-        $tempdate = $days * $i;
-        $nextdate = date("m/d/Y", strtotime($currentDate . " +$tempdate days"));
-        array_push($eventdates, $nextdate);
-    }
+$currentDate = date('m/d/Y'); // Outputs the date in the format "MM/DD/YYYY"
+$firstsaturday = date('m/d/Y', strtotime('next Saturday')); // Outputs the date in the format "MM/DD/YYYY"
+$eventdates = array();
+array_push($eventdates, $firstsaturday);
+$days = 6;
+for ($i = 1; $i <= 4; $i++) {
+    $tempdate = $days * $i;
+    $nextdate = date("m/d/Y", strtotime($firstsaturday . " +$tempdate days")); // Changed to use $firstsaturday
+    array_push($eventdates, $nextdate);
+}
 
 // Output
 echo "<h2 align='center'>Upcoming Events</h2>
     <div class='data-container'>
     <table class='datatable'>
-    <caption>date and time subject to change</caption>
+    <caption>Date and time subject to change</caption> // Updated caption format
         <thead>
             <tr>
                 <th>Date</th>
@@ -30,22 +31,22 @@ echo "<h2 align='center'>Upcoming Events</h2>
         </thead>
         <tbody>
             <tr>
-                <th>$eventdates[0]</th>
+                <th>{$eventdates[0]}</th> // Using curly braces for clarity
                 <td>SAT Test Prep</td>
                 <td>7:00 AM - 9:00 AM</td>
             </tr>
             <tr>
-                <th>$eventdates[1]</th>
+                <th>{$eventdates[1]}</th> // Using curly braces for clarity
                 <td>School Talent Show</td>
                 <td>5:00 PM - 7:30 PM</td>
             </tr>
             <tr>
-                <th>$eventdates[2]</th>
+                <th>{$eventdates[2]}</th> // Using curly braces for clarity
                 <td>Food Drive</td>
                 <td>8:30 PM - 10:30 PM</td>
             </tr>
             <tr>
-                <th>$eventdates[3]</th>
+                <th>{$eventdates[3]}</th> // Using curly braces for clarity
                 <td>Homecoming Assembly</td>
                 <td>2:00 PM - 3:00 PM</td>
             </tr>
@@ -59,7 +60,7 @@ echo "<h2 align='center'>Upcoming Events</h2>
     
     <div class='events'>
         <div class='event-section'>
-            <img src='images/test.jpg' alt='Test answer sheet'>
+            <img src='images/test.jpg' alt='Image of a test answer sheet'> // More descriptive alt text
             <section>
                 <h3>SAT Test Prep</h3>
                 <p>Prepare for success with our upcoming SAT prep class tailored for high school students. 
@@ -68,7 +69,7 @@ echo "<h2 align='center'>Upcoming Events</h2>
             </section>
         </div>
         <div class='event-section'>
-            <img src='images/talent.jpg' alt='skill text with silver background'>
+            <img src='images/talent.jpg' alt='Image of a talent show'> // More descriptive alt text
             <section>
                 <h3>School Talent Show</h3>
                 <p>Get ready to showcase your talents at our upcoming high school talent show. Whether you're 
@@ -77,7 +78,7 @@ echo "<h2 align='center'>Upcoming Events</h2>
             </section>
         </div>
         <div class='event-section'>
-            <img src='images/canned_goods.jpg' alt='multiple canned goods'>
+            <img src='images/canned_goods.jpg' alt='Image of multiple canned goods'> // More descriptive alt text
             <section>
                 <h3>Food Drive</h3>
                 <p>Join us in making a difference in the community by participating in our upcoming high school 
@@ -86,15 +87,15 @@ echo "<h2 align='center'>Upcoming Events</h2>
             </section>
         </div>
         <div class='event-section'>
-            <img src='images/homecoming.jpg' alt='balloons at ceiling'>
+            <img src='images/homecoming.jpg' alt='Image of balloons at ceiling'> // More descriptive alt text
             <section>
                 <h3>Homecoming Assembly</h3>
                 <p>Get ready for an unforgettable experience at our upcoming high school homecoming assembly. Join 
-                the spirit-filled celebration as we come together to showcase school pride and enjoy exciting performances</p>
+                the spirit-filled celebration as we come together to showcase school pride and enjoy exciting performances.</p>
             </section>
         </div>
     </div>
-    ";
+";
 
-	include('footer.php');
+include('footer.php');
 ?>
