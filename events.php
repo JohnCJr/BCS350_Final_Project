@@ -21,7 +21,7 @@ for ($i = 1; $i <= 4; $i++) {
 echo "<h2 align='center'>Upcoming Events</h2>
     <div class='data-container'>
     <table class='datatable'>
-    <caption>Date and time subject to change</caption> // Updated caption format
+    <caption>Date and time subject to change</caption>
         <thead>
             <tr>
                 <th>Date</th>
@@ -31,22 +31,22 @@ echo "<h2 align='center'>Upcoming Events</h2>
         </thead>
         <tbody>
             <tr>
-                <th>{$eventdates[0]}</th> // Using curly braces for clarity
+                <th>{$eventdates[0]}</th>
                 <td>SAT Test Prep</td>
                 <td>7:00 AM - 9:00 AM</td>
             </tr>
             <tr>
-                <th>{$eventdates[1]}</th> // Using curly braces for clarity
+                <th>{$eventdates[1]}</th> 
                 <td>School Talent Show</td>
                 <td>5:00 PM - 7:30 PM</td>
             </tr>
             <tr>
-                <th>{$eventdates[2]}</th> // Using curly braces for clarity
+                <th>{$eventdates[2]}</th> 
                 <td>Food Drive</td>
                 <td>8:30 PM - 10:30 PM</td>
             </tr>
             <tr>
-                <th>{$eventdates[3]}</th> // Using curly braces for clarity
+                <th>{$eventdates[3]}</th>
                 <td>Homecoming Assembly</td>
                 <td>2:00 PM - 3:00 PM</td>
             </tr>
