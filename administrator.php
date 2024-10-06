@@ -7,6 +7,7 @@ include('header.php');
 
 // Initialize variables
 $role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
+$course = isset($_SESSION['course']) ? $_SESSION['course'] : 'Course';
 
 // redirects if not an Admin
 if ($role != 'Administrator') {
@@ -46,11 +47,11 @@ $stmt->fetch();
 $stmt->close();
 
 // Directory for faculty profile pictures
-$dir = urlencode('profile pictures/faculty');
+$dir = 'profile pictures/faculty';
 
 // Default profile picture if none exists
 if ($profilepic == NULL) {
-    $profilepic = "$dir/default.jpg"; // Encoded directory used here
+    $profilepic = "$dir/default.jpg";
 }
 
 // Get user inputs and assigns default value if no input was set
@@ -136,7 +137,7 @@ while ($row = $result->fetch_assoc()) {
               <td><a href='mailto:" . htmlspecialchars($row['email'], ENT_QUOTES, 'UTF-8') . "'>" . htmlspecialchars($row['email'], ENT_QUOTES, 'UTF-8') . "</a></td>
               <td>" . htmlspecialchars($row['userid'], ENT_QUOTES, 'UTF-8') . "</td>";
     if ($row['photo'] == NULL) {
-        echo "<td><img src='" . urlencode('profile pictures/default.jpg') . "' width='100'></td>";
+        echo "<td><img src='profile pictures/default.jpg' width='100'></td>";
     } else {
         echo "<td><img src='" . htmlspecialchars($row['photo'], ENT_QUOTES, 'UTF-8') . "' width='100'></td>";
     }
@@ -180,13 +181,14 @@ while ($row = $result->fetch_assoc()) {
               <td><a href='mailto:" . htmlspecialchars($row['email'], ENT_QUOTES, 'UTF-8') . "'>" . htmlspecialchars($row['email'], ENT_QUOTES, 'UTF-8') . "</a></td>
               <td>" . htmlspecialchars($row['userid'], ENT_QUOTES, 'UTF-8') . "</td>";
     if ($row['photo'] == NULL) {
-        echo "<td><img src='" . urlencode('profile pictures/default.jpg') . "' width='100'></td>";
+        echo "<td><img src='profile pictures/default.jpg' width='100'></td>";
     } else {
         echo "<td><img src='" . htmlspecialchars($row['photo'], ENT_QUOTES, 'UTF-8') . "' width='100'></td>";
     }
     echo "</tr></tbody>";
 }
 echo "</table></div>";
+echo "</div></div>";
 
 if ($msg) echo "<p>Message: <span style='color:" . htmlspecialchars($msg_color, ENT_QUOTES, 'UTF-8') . "'>$msg</span></p>";
 

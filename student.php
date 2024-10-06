@@ -224,6 +224,8 @@ if ($task == 'View submission') {
     }
 }
 
+
+
 // Message
 echo "<p><table><tr>
       <td $bold>MESSAGE: </td>
